@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class CheckoutEntity {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     @Column
