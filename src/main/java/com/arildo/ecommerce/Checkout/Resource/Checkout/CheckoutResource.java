@@ -1,23 +1,23 @@
 package com.arildo.ecommerce.Checkout.Resource.Checkout;
 
-import lombok.Data;
+import com.arildo.ecommerce.Checkout.Service.CheckoutService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@Data
-public class CheckoutResource {
+@Controller
+@RequestMapping("/v1/checkout")
+@RequiredArgsConstructor
+public class CheckoutResource{
 
-    private String FirstName;
-    private String LastName;
-    private String email;
-    private String address;
-    private String complement;
-    private String country;
-    private String state;
-    private String cep;
-    private Boolean saveAddress;
-    private Boolean saveInfo;
-    private String paymentMethod;
-    private String cardName;
-    private String cardNumber;
-    private String cardDate;
-    private String cardCvv;
+    private final CheckoutService checkoutService;
+
+    @PostMapping("/")
+    public ResponseEntity<Void> create(@RequestBody CheckoutRequest checkoutRequest) {
+        checkoutService.create(checkoutRequest);
+       return ResponseEntity.ok().build();
+    }
 }
