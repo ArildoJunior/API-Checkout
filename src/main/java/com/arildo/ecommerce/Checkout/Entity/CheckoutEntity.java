@@ -2,8 +2,6 @@ package com.arildo.ecommerce.Checkout.Entity;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Value;
-import org.hibernate.type.EnumType;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
